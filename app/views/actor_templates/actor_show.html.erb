@@ -58,7 +58,7 @@
 <%#= We're starting at the Character query %>
   <tr>
     <td>
-      <% t = a_char.movie_id%>
+      <% t = a_char.movie_id %>
       <%# Go from t to Movie's name %>
       <% x = @list_of_movies.where({ :id => t}) %>
       <%= x.at(0).title %>
@@ -79,8 +79,15 @@
       <% w = @list_of_directors.where({ :id => v }) %>
       <%= w.at(0).name %>
     </td>
+
+    <td>
+      <%= a_char.name %>
+    </td>
     
-  
+    <td>
+      <a href="/movies/<%= a_char.movie_id %>"> Show details </a>
+    </td>
+    
 <% end %>
   <tr>
 </table>

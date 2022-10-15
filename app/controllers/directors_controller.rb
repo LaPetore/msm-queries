@@ -75,6 +75,7 @@ class DirectorsController < ApplicationController
     @list_of_actors = Actor.all
     @list_of_movies = Movie.all
     @list_of_directors = Director.all
+    @list_of_characters = Character.all
     @the_actor = Actor.where({ :id => the_id }).at(0)
     @the_character = Character.where({ :actor_id => the_id })
     
