@@ -91,12 +91,7 @@
     </td>
 
     <td>
-      <% t = a_film.id %>
-      <%# Go from t to the Movie title %>
-      <% x = @filmography.where({ :title => t }) %>
-      <% x.at(0) %>
-      
-      <a href="/movies/<% @x %>">Show details</a>
+      <a href="/movies/<%= a_film.id %>">Show details</a>
     </td>
     
   </tr>
