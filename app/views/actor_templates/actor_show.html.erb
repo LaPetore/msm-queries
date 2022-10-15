@@ -1,0 +1,89 @@
+<h1>Actor #<%= @the_actor.id %> details</h1>
+
+<a href="/actors">Go back</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @the_actor.name %>
+  </dd>
+
+  <dt>
+    Dob
+  </dt>
+  <dd>
+    <%= @the_actor.dob %>
+  </dd>
+
+  <dt>
+    Bio
+  </dt>
+  <dd>
+    <%= @the_actor.bio %>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <%= @the_actor.image %>
+  </dd>
+
+  <dt>
+    Created at 
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@the_actor.created_at) %>
+  </dd>
+
+  <dt>
+    Updated at 
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@the_actor.updated_at) %>
+  </dd>
+
+</dl>
+
+<hr>
+
+<h2>Filmography<h2>
+
+<table border="1">
+<% @the_character.each do |a_char| %>
+<%#= We're starting at the Character query %>
+  <tr>
+    <td>
+      <% t = a_char.movie_id%>
+      <%# Go from t to Movie's name %>
+      <% x = @list_of_movies.where({ :id => t}) %>
+      <%= x.at(0).title %>
+    </td>
+
+    <td>
+      <% t = a_char.movie_id %>
+      <%# Go from t to Movie's year %>
+      <% x = @list_of_movies.where({ :id => t }) %>
+      <%= x.at(0).year %>
+    </td>
+
+    <td>
+      <% t = a_char.movie_id %>
+      <%# Go from t to Movie's director_id %>
+      <% u = @list_of_movies.where({ :id => t }) %>
+      <% v = u.at(0).director_id %>
+      <% w = @list_of_directors.where({ :id => v }) %>
+      <%= w.at(0).name %>
+    </td>
+    
+  
+<% end %>
+  <tr>
+</table>
+
+
+    
